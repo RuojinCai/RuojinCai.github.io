@@ -16,9 +16,24 @@
 	
     <style>
           body {
-            font-family: 'sans-serif';
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             font-size: 18px;
+            line-height: 1.55;
+            color: #222222;
             background-color: #FFFFFF;            
+          }
+          a {
+            color: #7a3030;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+          }
+          a:hover {
+            color: #4f1e1e;
+          }
+          h2 {
+            font-size: 28px;
+            font-weight: 650;
+            letter-spacing: 0;
           }
           #header {
 			/*border: 10px solid #fff5f5;*/
@@ -27,8 +42,8 @@
             display: flex;
             align-items: flex-end;
 			/*margin-top:30px;*/
-            padding-top:20px;
-            padding-bottom:30px;
+            padding-top:34px;
+            padding-bottom:38px;
           }
           #footer {
             background-color: #FFFFFF;
@@ -37,27 +52,111 @@
           #portrait {
             border: 3px solid white;
             margin-top: 15px;
+            max-height: 200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
           }          
           #header-text-name {
             font-size: 38px;
+            font-weight: 600;
+            letter-spacing: 0;
+            margin-bottom: 8px;
           }
           .vspace-top {
-            margin-top: 20px;
-          }
-          .vspace-top-news {
-              margin-top: 15px;
-			  font-size: 20px;
+            margin-top: 24px;
           }
 		  .bio{
 			font-size: 18px;
-			margin-bottom: 10px;
+			line-height: 1.55;
+			margin-bottom: 12px;
+            max-width: 980px;
 		  }          
-          .news-date {
-              font-weight: bold;
-          }		  
+          .profile-links {
+            font-size: 17px;
+          }
+          .profile-links a {
+            margin-right: 8px;
+            white-space: nowrap;
+          }
           .paper-title {
 			font-size: 20px;
             font-weight: bold;
+            line-height: 1.3;
+            margin-bottom: 2px;
+          }
+          .paper-desc {
+            color: #555555;
+            font-size: 17px;
+            margin-bottom: 2px;
+          }
+          .paper-authors {
+            font-size: 17px;
+            margin-bottom: 2px;
+          }
+          .publication-entry .col > div:last-child {
+            font-size: 17px;
+            margin-top: 2px;
+          }
+          .publication-entry {
+            align-items: center;
+            margin-top: 26px;
+          }
+          .publication-entry .col-lg-4 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .publication-entry img {
+            width: 100%;
+            max-height: 170px;
+            object-fit: contain;
+          }
+          .publication-section-title {
+            margin-top: 38px;
+            margin-bottom: 2px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e4dada;
+            font-size: 22px;
+            font-weight: 650;
+          }
+          .publication-list {
+            display: flex;
+            flex-direction: column;
+          }
+          .publication-intro {
+            order: 0;
+            max-width: 980px;
+          }
+          .publication-intro h2 {
+            margin-bottom: 10px;
+          }
+          @media (max-width: 991px) {
+            .publication-entry {
+              align-items: flex-start;
+            }
+            .publication-entry .col-lg-4 {
+              justify-content: flex-start;
+              margin-bottom: 10px;
+            }
+            .publication-entry img {
+              max-height: 190px;
+              width: auto;
+              max-width: 100%;
+            }
+          }
+          .publication-selected-heading {
+            order: 1;
+          }
+          .publication-selected {
+            order: 2;
+          }
+          .publication-other-heading {
+            order: 3;
+          }
+          .publication-other {
+            order: 4;
+          }
+          .publication-list-break {
+            order: 5;
           }
     </style>
 </head>
@@ -65,14 +164,9 @@
 <body>
     <div id='header'>
         <div class='container'>
-            <!-- <div class='row'>
-            <div class="col-lg-3 offset-sm-1" id='header-text-name'>
-                Ruojin Cai
-            </div>
-            </div> -->
             <div class='row'>
                 <div class="col-lg-2 offset-sm-1">
-                    <img src='imgs/ruojin.jpg' class='img-fluid' id='portrait' style="max-height:200px">
+                    <img src='imgs/ruojin.jpg' class='img-fluid' id='portrait'>
                 </div>
                 <div class="col">
                     <div id='header-text-name'>
@@ -80,26 +174,19 @@
                     </div>
                              
                   <div class='bio'>
-                    I am a Ph.D. student in Computer Science at Cornell University, co-advised by Professors
-					<a href="http://home.bharathh.info/">Bharath Hariharan</a> 
-					and <a href="https://www.cs.cornell.edu/~snavely/">Noah Snavely</a>. 
-                    Previously, I earned my bachelor's degree from Tsinghua University.
-                    I have interned at Adobe and Google and was awarded the 2022 <a href="https://research.snap.com/fellowships.html">Snap Research Fellowship</a>.
-                    
-
-					<!-- Before that, I spent a wonderful summer at Cornell University, working with <a href="https://www.cs.cornell.edu/~kilian/">Prof. Kilian Q. Weinberger</a> and <a href="http://www.gaohuang.net/">Prof. Huang Gao</a>. 
-					I received my bachelor's degree from Tsinghua University, advised by 
-					<a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Prof. Jiwen Lu</a> and <a href="https://dblp.uni-trier.de/pers/hd/z/Zhou_0001:Jie">Prof. Jie Zhou</a>. -->
-
-                  </div>
+                    Ruojin Cai is a Kempner Research Fellow at the Kempner Institute for the Study of 
+                    Natural and Artificial Intelligence at Harvard University, working with Professor <a href="https://yilundu.github.io/">Yilun Du</a>. 
+                    She received her Ph.D. in Computer Science from Cornell University, 
+                    co-advised by Professors <a href="https://www.cs.cornell.edu/~bharathh/">Bharath Hariharan</a> and <a href="https://www.cs.cornell.edu/~snavely/">Noah Snavely</a>, 
+                    and her bachelor's degree from Tsinghua University. 
+                    She has interned at Adobe and Google and was awarded the 2022 <a href="https://research.snap.com/event_programs/fellowships-2022.html">Snap Research Fellowship</a>.
+					</div>
                   
-                <div>
-                    [<a href="mailto:rc844@cornell.edu" target="_blank">Email</a>]
-                    <!-- Email: rc844 (at) cornell (dot) edu -->
-                    [<a href="https://github.com/RuojinCai" target="_blank">GitHub</a>]
-                    [<a href="https://scholar.google.com/citations?user=z6D7OzoAAAAJ&hl=en" target="_blank">Google Scholar</a>]
-                    <!--<a href="">[Google Scholar]</a>-->
-                    [<a href="docs/CV_RuojinCai.pdf" target="_blank">CV</a>]
+                <div class='profile-links'>
+                    <a href="mailto:rc844@cornell.edu" target="_blank">Email</a>
+                    <a href="https://github.com/RuojinCai" target="_blank">GitHub</a>
+                    <a href="https://scholar.google.com/citations?user=z6D7OzoAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                    <a href="docs/CV_RuojinCai.pdf" target="_blank">CV</a>
                 </div>
 					
 					
@@ -111,54 +198,97 @@
 
     <div class='container'>
         <div class='row vspace-top'>
-            <div class='col offset-sm-1'>               
+            <div class='col offset-sm-1 publication-list'>               
 
-                <!--<div class='vspace-top'>
-                    <h1>News</h1>
-                </div>--->
 
-                <!--- List of news --->
-				<!--<div class='row vspace-top-news'>
-                    <div class="col-sm-2 news-date">
-                        May 2021
-                    </div>
-                    <div class="col">
-                        I will work as a summer research intern at Adobe.
-                    </div>					
+                <div class='vspace-top publication-intro'>
+                    <h2>Research</h2>
+                    My research focuses on <strong>3D computer vision</strong> and <strong>world models</strong>, with the long-term goal of 
+                    building <strong>spatial intelligence</strong> grounded in the real world. I study how to reconstruct and 
+                    understand 3D scenes under challenging conditions, including sparse observations and 
+                    ambiguities from repeated or symmetric structures. Building on this, I am interested in world models that 
+                    reason over space, time, and physical plausibility, enabling models to infer missing 3D 
+                    structure and predict future scene evolution beyond what is directly visible. More broadly, 
+                    I aim to bridge 3D spatial understanding with the semantic reasoning capabilities of 
+                    vision-language models, toward AI systems that can understand and reason about complex 
+                    real-world scenes.
                 </div>
-				
-				<div class='row vspace-top-news'>
-                    <div class="col-sm-2 news-date">
-                        Apr 2021
-                    </div>
-                    <div class="col">
-                        Our paper on <a href="https://arxiv.org/abs/2104.13530"> Extreme Rotation Estimation using Dense Correlation Volumes</a> was accepted to CVPR 2021. 
-						</br>
-						Our paper on <a href="https://arxiv.org/abs/2104.04382"> CondenseNet V2: Sparse Feature Reactivation for Deep Networks</a> was accepted to CVPR 2021.
-                    </div>					
-                </div>
-								
-                <div class='row vspace-top-news'>
-                    <div class="col-sm-2 news-date">
-                        July 2020
-                    </div>
-                    <div class="col">
-                        Our paper on <a href="https://arxiv.org/pdf/2008.06520.pdf"> Learning Gradient Fields for Shape Generation</a> was accepted to ECCV 2020 as a spotlight (5% acceptance rate).
-						</br>
-                    </div>
-                </div>-->
-
-                       
-
-
-                <div class='vspace-top'>
-                    <h2>Publications</h2>     
-                    My research interests lie in 3D computer vision and visual intelligence.
-                </div>
-
 
                 <!--- List of publications --->
-                <div class='row vspace-top'>
+                <div class='publication-section-title publication-selected-heading'>Selected Publications</div>
+                <div class='publication-section-title publication-other-heading'>Additional Publications</div>
+
+                <div class='row vspace-top publication-entry publication-selected' data-selected='true'>
+                    <div class="col-lg-4">
+                        <img src='imgs/megadepth_x_teaser.jpg' class='img-fluid'>
+                    </div>
+                
+                    <div class="col">
+                        <div class='paper-title'>
+                            Long-Tail Internet Photo Reconstruction
+                        </div>
+                        <div class='paper-desc'>
+                            CVPR 2026
+                        </div>
+                        <div class='paper-authors'>
+                            Yuan Li, Yuanbo Xiangli, Hadar Averbuch-Elor, Noah Snavely, <u>Ruojin Cai</u>
+                        </div>
+                        <div>
+                            <a href="https://megadepth-x.github.io/">[Project page]</a>
+                            <a href="https://arxiv.org/abs/2604.22714">[Paper]</a>
+                            <a href="https://huggingface.co/datasets/y-u-a-n-l-i/MegaDepth-X">[Data]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top publication-entry publication-other' data-selected='true'>
+                    <div class="col-lg-4">
+                        <img src='imgs/emergent_extreme_view_teaser.png' class='img-fluid'>
+                    </div>
+                
+                    <div class="col">
+                        <div class='paper-title'>
+                            Emergent Extreme-View Geometry in 3D Foundation Models
+                        </div>
+                        <div class='paper-desc'>
+                            CVPR 2026
+                        </div>
+                        <div class='paper-authors'>
+                            Yiwen Zhang, Joseph Tung, <u>Ruojin Cai</u>, David Fouhey, Hadar Averbuch-Elor
+                        </div>
+                        <div>
+                            <a href="https://cornell-vailab.github.io/Ext-3DFMs/">[Project page]</a>
+                            <a href="https://arxiv.org/abs/2511.22686">[Paper]</a>
+                            <a href="https://github.com/theREALevan/extreme-view-3dfm">[Code]</a>
+                            <a href="https://huggingface.co/datasets/cornell-vailab/megaunscene">[Data]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top publication-entry publication-other' data-selected='true'>
+                    <div class="col-lg-4">
+                        <img src='imgs/archsym_teaser.png' class='img-fluid'>
+                    </div>
+                
+                    <div class="col">
+                        <div class='paper-title'>
+                            ArchSym: Detecting 3D-Grounded Architectural Symmetries in the Wild
+                        </div>
+                        <div class='paper-desc'>
+                            CVPR 2026
+                        </div>
+                        <div class='paper-authors'>
+                            Hanyu Chen, <u>Ruojin Cai</u>, Steve Marschner, Noah Snavely
+                        </div>
+                        <div>
+                            <a href="https://hanyuc.com/archsym/">[Project page]</a>
+                            <a href="https://arxiv.org/abs/2604.22202">[Paper]</a>
+                            <a href="https://github.com/hanyucc/archsym_code">[Code]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row vspace-top publication-entry publication-selected' data-selected='true'>
                     <div class="col-lg-4">
                         <img src='imgs/video_models_help_pose.gif' class='img-fluid'>
                     </div>
@@ -180,9 +310,9 @@
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-selected' data-selected='true'>
                     <div class="col-lg-4">
-                        <img src='imgs/doppelgangers_plusplus.jpg' class='img-fluid'>
+                        <img src='imgs/doppelgangers_plusplus_teaser.gif' class='img-fluid'>
                     </div>
                 
                     <div class="col">
@@ -203,7 +333,7 @@
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-other' data-selected='false'>
                     <div class="col-lg-4">
                         <img src='imgs/rotation_in_the_wild.png' class='img-fluid'>
                     </div>
@@ -221,12 +351,12 @@
                         <div>
                             <a href="https://tau-vailab.github.io/ExtremeRotationsInTheWild/">[Project page]</a>
                             <a href="https://arxiv.org/abs/2411.07096">[Paper]</a>
-                            <a href="https://github.com/TAU-VAILab/ExtremeRotationsInTheWild.git">[Code]</a>
+                            <a href="https://github.com/TAU-VAILab/ExtremeRotationsInTheWild">[Code]</a>
                         </div>
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-other' data-selected='true'>
                     <div class="col-lg-4">
                         <img src='imgs/MegaScenes_teaser.jpg' class='img-fluid'>
                     </div>
@@ -251,7 +381,7 @@
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-selected' data-selected='true'>
                     <div class="col-lg-4">
                         <img src='imgs/doppelgangers.gif' class='img-fluid'>
                     </div>
@@ -274,7 +404,7 @@
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-selected' data-selected='true'>
                     <div class="col-lg-4">
                         <img src='imgs/swing.gif' class='img-fluid'>
                     </div>
@@ -297,7 +427,7 @@
                     </div>
                 </div>
 
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-other' data-selected='false'>
                     <div class="col-lg-4">
                         <img src='imgs/neusc_2.jpg' class='img-fluid'>
                     </div>
@@ -320,7 +450,7 @@
                     </div>
                 </div>
                 
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-selected' data-selected='true'>
                     <div class="col-lg-4">
                         <img src='imgs/rotations.png' class='img-fluid'>
                     </div>
@@ -343,7 +473,7 @@
                     </div>
                 </div>
 				
-				<div class='row vspace-top'>
+				<div class='row vspace-top publication-entry publication-other' data-selected='false'>
                     <div class="col-lg-4">
                         <img src='imgs/cdnetv22.gif' class='img-fluid'>
                     </div>
@@ -365,7 +495,7 @@
                     </div>
                 </div>
 				
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-selected' data-selected='true'>
                     <div class="col-lg-4">
                         <img src='imgs/ShapeGF.gif' class='img-fluid'>
                     </div>
@@ -388,7 +518,7 @@
                     </div>
                 </div>
                
-                <div class='row vspace-top'>
+                <div class='row vspace-top publication-entry publication-other' data-selected='false'>
                     <div class="col-lg-4">
                         <img src='imgs/hashing_1.png' class='img-fluid'>
                     </div>
@@ -408,7 +538,7 @@
                         </div>
                     </div>
                 </div>
-			<br>
+			<br class='publication-list-break'>
             </div>
         </div>
 		
